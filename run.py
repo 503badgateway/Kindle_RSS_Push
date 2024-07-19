@@ -6,18 +6,6 @@ rss_urls = [
     "https://www.voachinese.com/api/zm_yqebbyi"
 ]
 
-if os.path.exists("Push.html"):
-    with open("Push.html", "r", encoding="utf-8") as f:
-        last_generated = f.readline().strip()
-        if last_generated.startswith("生成時間: "):
-            last_generated = last_generated.replace("生成時間: ", "")
-            last_generated = datetime.datetime.strptime(last_generated, "%Y-%m-%d %H:%M:%S")
-
-            if (datetime.datetime.now() - last_generated).days > 0:
-                pass
-            else:
-                exit()
-
 current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 with open("Push.html", "w", encoding="utf-8") as f:
